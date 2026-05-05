@@ -37,11 +37,11 @@ export default function AuthPage() {
       <div className="auth-hero">
         <div className="hero-dots" />
         <div className="hero-content">
-    <img 
-    src="/https://github.com/shreegokulam/Sandhyavandhanam/tree/main/daily-tracker/public/logo.png" 
-    alt="Asthika Samaj Logo" 
-    className="hero-logo"
-  />
+ <img 
+  src="https://raw.githubusercontent.com/shreegokulam/Sandhyavandhanam/main/daily-tracker/public/logo.png" 
+  alt="Asthika Samaj Logo" 
+  className="hero-logo"
+/>
           <div className="hero-badge"><span />Daily Sandhyavandhanam Tracker</div>
           <h1>Build habits.<br /><em>Track</em> your<br />daily flow.</h1>
           <p>Log your Prathakala, Madhyanika, and Saayamkala Sandhyavandhanam activities.</p>
