@@ -43,9 +43,9 @@ export default function AuthPage() {
         className="auth-logo" 
         style={{ maxWidth: '150px', marginBottom: '200px' }} 
       />
-          <div className="hero-badge"><span />Daily Rhythm Tracker</div>
+          <div className="hero-badge"><span />Daily Sandhyavandhanam Tracker</div>
           <h1>Build habits.<br /><em>Track</em> your<br />daily flow.</h1>
-          <p>Log your PrathaSandhya, Madhyanika, and SaayamSandhyavandhanam activities.</p>
+          <p>Log your Pratha Sandhya, Madhyanika, and Saayam Sandhyavandhanam activities.</p>
           <div className="hero-slots">
             {[
               { icon: '🌅', label: 'Prathasandhya' },
@@ -63,7 +63,7 @@ export default function AuthPage() {
 
       {/* Form panel */}
       <div className="auth-panel">
-        <div className="auth-logo">Rhythm<span>.</span></div>
+        <div className="auth-logo">Sandhyavandhanam Tracker<span>.</span></div>
         <div className="auth-form-wrapper">
           <div className="auth-tabs">
             <button className={`auth-tab ${tab === 'login' ? 'active' : ''}`} onClick={() => { setTab('login'); setError(''); }}>Sign In</button>
