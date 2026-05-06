@@ -129,7 +129,19 @@ h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
   padding: 14px 12px;
   text-align: center;
 }
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
+.auth-logo {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
 .hero-slot .slot-icon { font-size: 1.4rem; margin-bottom: 4px; }
 .hero-slot .slot-label { font-size: 0.72rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Syne', sans-serif; }
 
