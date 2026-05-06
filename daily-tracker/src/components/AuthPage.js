@@ -12,18 +12,34 @@ export default function AuthPage() {
 
   const handleSubmit = async () => {
     setError('');
-    if (!form.email || !form.password) return setError('Please fill all fields.');
-    if (tab === 'register' && !form.name) return setError('Name is required.');
+
+    if (!form.email || !form.password) {
+      return setError('Please fill all fields.');
+    }
+
+    if (tab === 'register' && !form.name) {
+      return setError('Name is required.');
+    }
 
     setLoading(true);
+
     try {
-      const endpoint = tab === 'login' ? '/auth/login' : '/auth/register';
+      // ✅ FIXED ENDPOINT
+      const endpoint = tab === 'login'
+        ? '/.netlify/functions/auth/login'
+        : '/.netlify/functions/auth/register';
+
       const body = tab === 'login'
         ? { email: form.email, password: form.password }
         : { name: form.name, email: form.email, password: form.password };
 
-      const data = await apiCall(endpoint, { method: 'POST', body: JSON.stringify(body) });
+      const data = await apiCall(endpoint, {
+        method: 'POST',
+        body: JSON.stringify(body)
+      });
+
       login(data.token, data.user);
+
     } catch (err) {
       setError(err.message);
     } finally {
@@ -33,69 +49,63 @@ export default function AuthPage() {
 
   return (
     <div className="auth-page">
-      {/* Hero panel */}
       <div className="auth-hero">
         <div className="hero-dots" />
         <div className="hero-content">
-<img 
-  src="https://raw.githubusercontent.com/shreegokulam/Sandhyavandhanam/main/daily-tracker/public/logo.png" 
-  alt="Asthika Samaj Logo" 
-  className="hero-logo"
-  style={{ width: '120px', height: 'auto', display: 'block', marginBottom: '20px' }}
-/>
+          <img 
+            src="https://raw.githubusercontent.com/shreegokulam/Sandhyavandhanam/main/daily-tracker/public/logo.png" 
+            alt="Asthika Samaj Logo" 
+            className="hero-logo"
+            style={{ width: '120px', height: 'auto', display: 'block', marginBottom: '20px' }}
+          />
           <div className="hero-badge"><span />Daily Sandhyavandhanam Tracker</div>
           <h1>Build habits.<br /><em>Track</em> your<br />daily flow.</h1>
           <p>Log your Prathakala, Madhyanika, and Saayamkala Sandhyavandhanam activities.</p>
-          <div className="hero-slots">
-            {[
-              { icon: '🌅', label: 'Pratha Sandhyavandhanam' },
-              { icon: '☀️', label: 'Madhyanikam' },
-              { icon: '🌙', label: 'Saayam Sandhyavandhanam' },
-            ].map((s) => (
-              <div key={s.label} className="hero-slot">
-                <div className="slot-icon">{s.icon}</div>
-                <div className="slot-label">{s.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
-      {/* Form panel */}
       <div className="auth-panel">
         <div className="auth-logo">Rhythm<span>.</span></div>
+
         <div className="auth-form-wrapper">
           <div className="auth-tabs">
-            <button className={`auth-tab ${tab === 'login' ? 'active' : ''}`} onClick={() => { setTab('login'); setError(''); }}>Sign In</button>
-            <button className={`auth-tab ${tab === 'register' ? 'active' : ''}`} onClick={() => { setTab('register'); setError(''); }}>Create Account</button>
+            <button className={`auth-tab ${tab === 'login' ? 'active' : ''}`} onClick={() => { setTab('login'); setError(''); }}>
+              Sign In
+            </button>
+            <button className={`auth-tab ${tab === 'register' ? 'active' : ''}`} onClick={() => { setTab('register'); setError(''); }}>
+              Create Account
+            </button>
           </div>
 
           <h2 className="auth-title">{tab === 'login' ? 'Welcome back' : 'Get started'}</h2>
-          <p className="auth-subtitle">
-            {tab === 'login' ? 'Sign in to your account to continue.' : 'Create your account — it takes 30 seconds.'}
-          </p>
 
           {error && <div className="auth-error">{error}</div>}
 
           {tab === 'register' && (
-            <div className="field-group">
-              <label className="field-label">Your Name</label>
-              <input className="field-input" type="text" placeholder="Alex Johnson" value={form.name} onChange={set('name')} onKeyDown={(e) => e.key === 'Enter' && handleSubmit()} />
-            </div>
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={form.name}
+              onChange={set('name')}
+            />
           )}
 
-          <div className="field-group">
-            <label className="field-label">Email Address</label>
-            <input className="field-input" type="email" placeholder="you@example.com" value={form.email} onChange={set('email')} onKeyDown={(e) => e.key === 'Enter' && handleSubmit()} />
-          </div>
+          <input
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={set('email')}
+          />
 
-          <div className="field-group">
-            <label className="field-label">Password</label>
-            <input className="field-input" type="password" placeholder={tab === 'register' ? 'Min 8 characters' : '••••••••'} value={form.password} onChange={set('password')} onKeyDown={(e) => e.key === 'Enter' && handleSubmit()} />
-          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={set('password')}
+          />
 
-          <button className="btn-primary" onClick={handleSubmit} disabled={loading}>
-            {loading ? 'Please wait…' : tab === 'login' ? 'Sign In →' : 'Create Account →'}
+          <button onClick={handleSubmit} disabled={loading}>
+            {loading ? 'Please wait...' : tab === 'login' ? 'Login' : 'Register'}
           </button>
         </div>
       </div>
