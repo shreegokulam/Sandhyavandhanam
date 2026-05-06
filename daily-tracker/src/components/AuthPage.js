@@ -41,7 +41,7 @@ export default function AuthPage() {
         src="/logo.png" 
         alt="Logo" 
         className="auth-logo" 
-        style={{ maxWidth: '100px', marginBottom: '20px' }} 
+        style={{ maxWidth: '150px', marginBottom: '20px' }} 
       />
           <div className="hero-badge"><span />Daily Rhythm Tracker</div>
           <h1>Build habits.<br /><em>Track</em> your<br />daily flow.</h1>
