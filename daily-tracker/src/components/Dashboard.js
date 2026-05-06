@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth, apiCall } from '../App';
 
 const SLOTS = [
-  { key: 'morning', label: 'Morning', icon: '🌅', activity: 'Exercise / Movement', color: 'morning' },
-  { key: 'afternoon', label: 'Afternoon', icon: '☀️', activity: 'Reading / Learning', color: 'afternoon' },
-  { key: 'evening', label: 'Evening', icon: '🌙', activity: 'Meditation / Reflection', color: 'evening' },
+  { key: 'morning', label: 'PrathaSandhya', icon: '🌅', activity: 'Exercise / Movement', color: 'morning' },
+  { key: 'afternoon', label: 'Madhyanika', icon: '☀️', activity: 'Reading / Learning', color: 'afternoon' },
+  { key: 'evening', label: 'SaayamSandhya', icon: '🌙', activity: 'Meditation / Reflection', color: 'evening' },
 ];
 
 function formatDate(dateStr) {
