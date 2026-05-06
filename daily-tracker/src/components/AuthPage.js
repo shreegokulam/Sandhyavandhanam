@@ -37,14 +37,20 @@ export default function AuthPage() {
       <div className="auth-hero">
         <div className="hero-dots" />
         <div className="hero-content">
+   <img 
+        src="/logo.png" 
+        alt="Logo" 
+        className="auth-logo" 
+        style={{ maxWidth: '100px', marginBottom: '20px' }} 
+      />
           <div className="hero-badge"><span />Daily Rhythm Tracker</div>
           <h1>Build habits.<br /><em>Track</em> your<br />daily flow.</h1>
-          <p>Log your morning, afternoon, and evening activities. Watch your streaks grow.</p>
+          <p>Log your PrathaSandhya, Madhyanika, and SaayamSandhyavandhanam activities.</p>
           <div className="hero-slots">
             {[
-              { icon: '🌅', label: 'Morning' },
-              { icon: '☀️', label: 'Afternoon' },
-              { icon: '🌙', label: 'Evening' },
+              { icon: '🌅', label: 'Prathasandhya' },
+              { icon: '☀️', label: 'Madhyanika' },
+              { icon: '🌙', label: 'SaayamSandhya' },
             ].map((s) => (
               <div key={s.label} className="hero-slot">
                 <div className="slot-icon">{s.icon}</div>
