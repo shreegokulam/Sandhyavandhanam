@@ -41,7 +41,7 @@ export default function AuthPage() {
         src="/logo.png" 
         alt="Logo" 
         className="auth-logo" 
-        style={{ maxWidth: '150px', marginBottom: '200px' }} 
+        
       />
           <div className="hero-badge"><span />Daily Sandhyavandhanam Tracker</div>
           <h1>Build habits.<br /><em>Track</em> your<br />daily flow.</h1>
